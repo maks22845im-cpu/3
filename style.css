@@ -1,0 +1,218 @@
+/* Сброс базовых отступов */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* =======================================================
+   1. БАЗОВЫЕ СТИЛИ (MOBILE FIRST)
+   Сначала описываем, как сайт выглядит на смартфонах
+   ======================================================= */
+
+/* Контейнер занимает 100% ширины экрана */
+.container {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Шапка сайта */
+#main-header {
+    background-color: #5bb3e6;
+    border-bottom: 1px solid #3a93c7;
+}
+
+/* Используем Flex Box для выравнивания. 
+   На мобильных шапка и меню выстраиваются в колонку */
+.header-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+    background-color: #a0d4f5;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#site-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Навигация. На мобильных ссылки идут вертикальным списком */
+#main-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#main-nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 12px;
+    border-top: 1px solid #3a93c7;
+    text-align: left;
+}
+
+/* Основной контент (тоже флекс-контейнер в колонку) */
+.main-flex {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.content-block {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* ВАЖНО (пункт 3 задания): 
+   Меняем визуальный порядок блоков на смартфоне.
+   Таблице даем order: 1, а списку ссылок order: 2. 
+   Теперь таблица будет выше, хоть в HTML она идет второй. */
+.table-section {
+    order: 1; 
+    background-color: #f0f8ff;
+}
+
+.links-section {
+    order: 2; 
+}
+
+.form-section {
+    order: 3; 
+    border-bottom: none;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    border-bottom: 2px solid #5bb3e6;
+    padding-bottom: 5px;
+}
+
+/* Стили таблицы (адаптированы под узкий экран) */
+#data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#data-table th, 
+#data-table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#data-table th {
+    background-color: #5bb3e6;
+}
+
+/* Чередование цвета строк */
+#data-table tbody tr:nth-child(odd) { background-color: #fff; }
+#data-table tbody tr:nth-child(even) { background-color: #e6f2f9; }
+
+/* Подвал */
+#main-footer {
+    background-color: #5bb3e6;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    border-top: 1px solid #3a93c7;
+}
+
+
+/* =======================================================
+   2. МЕДИА-ЗАПРОС (MEDIA QUERY ДЛЯ ПЛАНШЕТОВ И ПК)
+   Если ширина экрана 768px и больше, применяются эти стили
+   ======================================================= */
+@media (min-width: 768px) {
+    
+    /* Ограничиваем ширину контента до 960px и центрируем (как в Задании 2) */
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Шапка перестраивается в строку: лого слева, меню справа */
+    .header-flex {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    /* Меню становится горизонтальным */
+    #main-nav {
+        flex-direction: row;
+        width: auto;
+        gap: 15px;
+    }
+
+    #main-nav a {
+        border-top: none; /* Убираем разделительные линии */
+        padding: 0;
+    }
+
+    #main-nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* ВОЗВРАЩАЕМ ИСХОДНЫЙ ПОРЯДОК БЛОКОВ.
+       Сбрасываем order в 0, чтобы блоки шли так, как написаны в HTML */
+    .table-section, .links-section, .form-section {
+        order: 0; 
+    }
+
+    /* Оформление контента для десктопа (белая карточка с тенью) */
+    .main-flex {
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .content-block {
+        padding: 0;
+        margin-bottom: 40px;
+        border-bottom: none;
+    }
+
+    /* Выравнивание текста в подвале для десктопа */
+    #main-footer {
+        text-align: left;
+    }
+    
+    #main-footer .container {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3 - Адаптивная верстка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта (header) -->
+    <header id="main-header">
+        <div class="container header-flex">
+            <div class="header-top">
+                <div id="logo">Лого</div>
+                <span id="site-name">Название сайта</span>
+            </div>
+            
+            <!-- Навигация (nav) -->
+            <nav id="main-nav">
+                <a href="#">Ссылка меню 1</a>
+                <a href="#">Ссылка 2</a>
+                <a href="#">Ссылка 3</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент. Класс main-flex используется для управления порядком блоков на мобильных -->
+    <main id="content" class="container main-flex">
+        
+        <!-- ВАЖНО: По заданию в HTML списку ссылок должен предшествовать таблице -->
+        
+        <!-- 1. Секция со списком гиперссылок -->
+        <section class="links-section content-block">
+            <h2>Список гиперссылок</h2>
+            <ul class="link-list">
+                <li><a href="http://kubsu.ru/">1) Абсолютная гиперссылка на главную страницу сайта kubs.ru</a></li>
+                <li><a href="https://kubsu.ru/">2) Абсолютная на главную сайта kubs.ru в протоколе https</a></li>
+                <li><a href="https://kubsu.ru/"><img src="https://via.placeholder.com/50" alt="Картинка"> 3) Ссылка-изображение</a></li>
+                <li><a href="/inner">4) Сокращенная ссылка на внутреннюю страницу</a></li>
+                <li><a href="/">5) Сокращенная ссылка на главную страницу</a></li>
+                <li><a href="#top">6) Ссылка на фрагмент текущей страницы</a></li>
+                <li><a href="/page?param1=1&param2=2&param3=3">7) Ссылка с тремя параметрами в URL</a></li>
+                <li><a href="/page?id=123">8) Ссылка с параметром id в URL</a></li>
+                <li><a href="page.html">9) Относительная на страницу в текущем каталоге</a></li>
+                <li><a href="about/page.html">10) Относительная на страницу в каталоге about</a></li>
+                <li><a href="../page.html">11) Относительная на страницу в каталоге уровнем выше текущего</a></li>
+                <li><a href="../../page.html">12) Относительная на страницу в каталоге двумя уровнями выше</a></li>
+                <li><p>13) Контекстная в тексте абзаца: <a href="https://kubsu.ru/">вот здесь</a> находится ссылка.</p></li>
+                <li><a href="https://example.com/page#section">14) Ссылка на фрагмент страницы стороннего сайта</a></li>
+                <li>
+                    <img src="https://via.placeholder.com/150" alt="Карта" usemap="#mymap">
+                    <map name="mymap">
+                        <area shape="rect" coords="0,0,75,150" href="https://kubsu.ru/" alt="Прямоугольник">
+                        <area shape="circle" coords="112,75,38" href="https://kubsu.ru/" alt="Круг">
+                    </map>
+                </li>
+                <li><a href="">16) Ссылка с пустым href</a></li>
+                <li><a>17) Ссылка без href</a></li>
+                <li><a href="https://kubsu.ru/" rel="nofollow">18) Ссылка, по которой запрещен переход поисковикам</a></li>
+                <li><a href="https://kubsu.ru/">19) Запрещенная для индексации поисковиками</a></li>
+                <li>
+                    20) Нумерованный список ссылок с подписями title:
+                    <ol>
+                        <li><a href="https://kubsu.ru/" title="Подпись 1">Ссылка 1</a></li>
+                        <li><a href="https://kubsu.ru/" title="Подпись 2">Ссылка 2</a></li>
+                    </ol>
+                </li>
+                <li><a href="ftp://user:password@ftp.example.com/file.txt">21) Ссылка на файл на сервере FTP с авторизацией</a></li>
+            </ul>
+        </section>
+
+        <!-- 2. Секция с таблицей -->
+        <section class="table-section content-block">
+            <h2>Таблица</h2>
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>Колонка 1</th>
+                        <th>Колонка 2</th>
+                        <th>Колонка 3</th>
+                        <th>Колонка 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Ячейка 11 объединенная с 12</td>
+                        <td>Ячейка 13</td>
+                        <td>Ячейка 14</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 21</td>
+                        <td rowspan="2">Ячейка 22 объединенная с 32</td>
+                        <td>Ячейка 23</td>
+                        <td>Ячейка 24</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 31</td>
+                        <td>Ячейка 33</td>
+                        <td>Ячейка 34</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 41</td>
+                        <td>Ячейка 42</td>
+                        <td colspan="2">Ячейка 43 объединенная с 44</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 51</td>
+                        <td>Ячейка 52</td>
+                        <td>Ячейка 53</td>
+                        <td>Ячейка 54</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 61</td>
+                        <td>Ячейка 62</td>
+                        <td>Ячейка 63</td>
+                        <td>Ячейка 64</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 3. Секция с формой -->
+        <section class="form-section content-block">
+            <h2>Форма</h2>
+            <form action="/submit" method="post">
+                <label>
+                    1) ФИО (текстовое поле):<br>
+                    <input type="text" name="fio" required>
+                </label><br><br>
+                <label>
+                    2) Телефон (поле tel):<br>
+                    <input type="tel" name="phone">
+                </label><br><br>
+                <label>
+                    3) E-mail (поле email):<br>
+                    <input type="email" name="email">
+                </label><br><br>
+                <label>
+                    4) Дата рождения (поле даты):<br>
+                    <input type="date" name="dob">
+                </label><br><br>
+                5) Пол (радиокнопки):<br>
+                <label><input type="radio" name="gender" value="male"> Мужской</label>
+                <label><input type="radio" name="gender" value="female"> Женский</label><br><br>
+                <label>
+                    6) Любимый язык программирования:<br>
+                    <select name="lang[]" multiple size="5">
+                        <option value="Pascal">Pascal</option>
+                        <option value="C">C</option>
+                        <option value="C++">C++</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="Haskell">Haskell</option>
+                        <option value="Clojure">Clojure</option>
+                        <option value="Prolog">Prolog</option>
+                        <option value="Scala">Scala</option>
+                    </select>
+                </label><br><br>
+                <label>
+                    7) Биография:<br>
+                    <textarea name="bio" rows="5" cols="40"></textarea>
+                </label><br><br>
+                <label>
+                    8) <input type="checkbox" name="contract"> С контрактом ознакомлен(а)
+                </label><br><br>
+                9) <button type="submit">Сохранить</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Подвал сайта (footer) -->
+    <footer id="main-footer">
+        <div class="container">
+            (с) Сергей Синица
+        </div>
+    </footer>
+
+</body>
+</html>
